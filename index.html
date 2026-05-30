@@ -6,50 +6,104 @@
     <title>Guess the Number</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f4f8;
-            padding: 50px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #333;
         }
         .container {
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 40px auto;
             background: white;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        input {
-            padding: 12px;
-            font-size: 18px;
-            width: 150px;
-            text-align: center;
+        h1 {
+            margin: 0 0 10px 0;
+            color: #4a4a4a;
         }
-        button {
-            padding: 12px 25px;
-            font-size: 18px;
-            margin: 10px;
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .difficulty-buttons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .difficulty-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
             cursor: pointer;
         }
+        .easy { background: #4caf50; color: white; }
+        .medium { background: #ff9800; color: white; }
+        .hard { background: #f44336; color: white; }
+
+        input {
+            padding: 15px;
+            font-size: 20px;
+            width: 180px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #guessBtn {
+            background: #4a4a4a;
+            color: white;
+        }
+        #resetBtn {
+            background: #e0e0e0;
+        }
         #feedback {
-            font-size: 22px;
-            margin: 20px 0;
-            min-height: 30px;
+            font-size: 24px;
+            margin: 25px 0;
+            min-height: 40px;
+            font-weight: bold;
+        }
+        .stats {
+            margin-top: 20px;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Guess the Number</h1>
-        <p>I'm thinking of a number between <strong>1 and 100</strong></p>
-        
-        <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
+        <h1>🎯 Guess the Number</h1>
+        <p class="subtitle">I'm thinking of a number...</p>
+
+        <!-- Difficulty Buttons -->
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn easy" data-difficulty="easy">Easy (1-50)</button>
+            <button class="difficulty-btn medium" data-difficulty="medium">Medium (1-100)</button>
+            <button class="difficulty-btn hard" data-difficulty="hard">Hard (1-200)</button>
+        </div>
+
+        <input type="number" id="guessInput" placeholder="Your guess" min="1">
         <br>
         <button id="guessBtn">Submit Guess</button>
         <button id="resetBtn">New Game</button>
-        
+
         <p id="feedback"></p>
-        <p>Attempts: <span id="attempts">0</span></p>
+        
+        <div class="stats">
+            <p>Attempts: <strong id="attempts">0</strong></p>
+            <p>Best Score: <strong id="bestScore">—</strong></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
