@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f4f8;
+            padding: 50px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 12px;
+            font-size: 18px;
+            width: 150px;
+            text-align: center;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #feedback {
+            font-size: 22px;
+            margin: 20px 0;
+            min-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number</h1>
+        <p>I'm thinking of a number between <strong>1 and 100</strong></p>
+        
+        <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
+        <br>
+        <button id="guessBtn">Submit Guess</button>
+        <button id="resetBtn">New Game</button>
+        
+        <p id="feedback"></p>
+        <p>Attempts: <span id="attempts">0</span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
